@@ -1,0 +1,10 @@
+<!--pages/gallery/wallpaper/list/list.wxml-->
+<view class="container">
+  <notice msg="超清美图，长按图片可以保存哦！" />
+  <block wx:for="{{wps}}" wx:key="*this">
+    <view>
+      <image bindlongtap="savePNG" id="{{item.url}}" mode="widthFix" src="{{item.url}}"></image>
+    </view>
+    <text>{{item.utag}} {{item.resolution}}</text>
+  </block>
+</view>

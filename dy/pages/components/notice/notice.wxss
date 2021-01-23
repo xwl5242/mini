@@ -1,0 +1,32 @@
+/* pages/components/notice/notice.wxss */
+.srcoll_view {
+  position: fixed;
+  top: 0rpx;
+  height: 60rpx;
+  font-family: 微软雅黑;
+  font-weight: 400;
+  font-size: 28rpx;
+  white-space: nowrap;
+  line-height: 60rpx;
+  color: #fff;
+  animation: myfirst 20s linear infinite;
+}
+
+@keyframes myfirst {
+  0% {
+      margin-left: 750rpx;
+  }
+  100% {
+      margin-left: -1500rpx;
+  }
+}
+
+.scroll_view_border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  height: 60rpx;
+  overflow: hidden;
+}

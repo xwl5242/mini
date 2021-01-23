@@ -1,0 +1,29 @@
+/* pages/suggest/suggest.wxss */
+page {
+  background-color: #000;
+}
+.container {
+  color: #fff;
+}
+.container textarea {
+  width: 90%;
+  color: #000;
+  font-size: 14px;
+  font-weight: 800;
+  min-height: 150px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 10px 10px;
+}
+.downloadBtn {
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #6F3F15;
+  width: 85%;
+  text-align: center;
+  margin-top: 20px;
+  height: 40px;
+  line-height: 40px;
+  background: #FFE834;
+}

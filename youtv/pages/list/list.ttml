@@ -1,0 +1,23 @@
+	<nav />
+	<view class="main" style="margin-top: 3.2rem;">
+		<view tt:for="{{mv_keys}}" tt:if="{{item!=11}}" tt:key="*this" class="main-layout main-back-color-white">
+			<view class="main-list-head main-row main-padding">
+				<text class="title">{{mv_types[item]['type_name']}}</text>
+				<view class="tip main-padding">
+					<view id="{{item}}" data-typename="{{mv_types[item]['type_name']}}" bindtap="listMore"><text class="">更多</text></view>
+				</view>
+			</view>
+			<view class="main-list-info main-row">
+				<view bindtap="toDetail" id="{{mvItem.vod_id}}" tt:for="{{mvs[item]}}" tt:key="*this" tt:for-item="mvItem" class="list main-padding main-col-xs4">
+					<view data-lazy-vod-id="{{mvItem.vod_id}}" data-lazy-vod-type="{{item}}"
+					class="lazy-vod pic" style="display: block; background-image: url({{mvItem['show']?mvItem['vod_pic']:'https://www.quanchonger.com/load.gif'}});">
+						<text class="vod"></text>
+						<!-- <text class="score main-color-white main-back-color">{{mvItem['vod_serial']}}</text> -->
+						<text class="remarks main-color-white main-text-center">{{mvItem['vod_remarks']}}</text>
+					</view>
+					<view class="title main-text-center main-text-eone">{{mvItem['vod_name']}}</view>
+					<text class="desc main-text-eone main-color666">{{mvItem['vod_actor']?mvItem['vod_actor']:mvItem['vod_name']}}</text>
+				</view>
+			</view>
+		</view>
+	</view>

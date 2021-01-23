@@ -1,0 +1,18 @@
+/* pages/gallery/gif/gif.wxss */
+page {
+  background-color: #000;
+}
+.container {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 20px;
+}
+.gif-list {
+  text-align: center;
+}
+.gif-list-item {
+  margin-top: 5px;
+}
+.gif-list-item image {
+  margin-top: 20px;
+}

@@ -1,0 +1,45 @@
+<nav />
+<view class="main" style="margin-top: 3.2rem;">
+	<view class="main-layout main-back-color-white">
+		<view class="main-list-head main-row main-padding">
+			<view class="title">
+				搜索到与 "<text class="main-color main-text-bold">{{currentKw}}</text>"
+				相关的 "<text class="main-color main-text-bold">{{mvs.length}}</text>" 条结果
+			</view>
+		</view>
+		<block wx:if="{{mvs.length==0}}">
+			<view class="main-padding main-margin main-over main-row">
+				请尝试使用其中的关键词进行搜索,如 "暖暖请指教" 可以替换为 "暖暖" 会有意想不到的结果哦！
+			</view>
+		</block>
+		<block wx:else>
+			<ad unit-id="adunit-eaf232d323404d77" ad-intervals="55"></ad>
+			<view wx:for="{{mvs}}" wx:key="*this" class="vod-info main-padding main-margin main-row mian-over">
+				<view class="vod-list-info main-col-xs3">
+					<view bindtap="showDetail" id="{{item.vod_id}}" class="pic" style="display: block; background-image: url({{item.vod_pic}});">
+						<text class="remarks main-color-white main-text-center">{{item.vod_remarks}}</text>
+					</view>
+				</view>
+				<view class="vod-content main-col-xs9">
+					<view class="main-text-eone text-left">
+						<view bindtap="showDetail" id="{{item.vod_id}}">
+							<text style="font-size: 1rem !important;" class="main-color main-text-bold text-left">{{item.vod_name}}</text>
+						</view>
+					</view>
+					<view class="main-row">
+						<view class="list main-col-xs12 main-text-eone text-left"><text class="main-color666">主演：</text>{{item.vod_actor}}</view>
+						<view class="list main-col-xs12 main-text-eone text-left"><text class="main-color666">导演：</text>{{item.vod_director}}</view>
+						<view class="list main-col-xs6 main-text-eone text-left"><text class="main-color666">分类：</text></view>
+						<view class="list main-col-xs6 main-text-eone text-left"><text class="main-color666">地区：</text>{{item.vod_area}}</view>
+						<view class="list main-col-xs6 main-text-eone text-left"><text class="main-color666">年份：</text>{{item.vod_year}}</view>
+						<view class="list main-col-xs6 main-text-eone text-left"><text class="main-color666">更新：</text>05.09</view>
+					</view>
+					<view class="main-col-xs9 main-row">
+						<view bindtap="showDetail" id="{{item.vod_id}}" 
+						class="vod-btn vod-play-btns vod-btn-border main-back-color main-col-xs6" style="color: #000;">查看详情</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

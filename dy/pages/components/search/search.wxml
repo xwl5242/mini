@@ -1,0 +1,8 @@
+<!--pages/components/search.wxml-->
+<view class="search">
+  <view class="search-input">
+    <input class="search-input-item" bindinput="bindKeyInput" value="{{initKeyWord}}"
+    placeholder-class="input-placeholder" placeholder="请输入歌曲名称关键字"></input>
+  </view>
+  <view class="search-btn" bindtap="toSearch"><view class="search-btn-label">搜索</view></view>
+</view>

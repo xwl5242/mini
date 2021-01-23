@@ -1,0 +1,12 @@
+<!--pages/play/play.wxml-->
+<view class="container">
+<block wx:if="{{showPlay}}">
+  <audio poster="{{fm}}" name="{{songName}}" author="{{singer}}" src="{{playUrl}}" id="myAudio" controls loop></audio>
+  <view wx:if="{{showDownload}}" class="downloadBtn" bindtap="downloadMusic">开始下载</view>
+</block>
+<block wx:if="{{!showPlay}}">
+  <view style="color: #fff;">
+    暂不提供服务！
+  </view>
+</block>
+</view>

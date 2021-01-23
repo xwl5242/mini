@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "notice": "../components/notice/notice",
+    "search": "../components/search/search"
+  }
+}

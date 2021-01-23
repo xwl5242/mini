@@ -1,0 +1,5 @@
+/* pages/search/search.wxss */
+@import '../index/index.ttss';
+page{
+  background-color: #2B2A2A;
+}

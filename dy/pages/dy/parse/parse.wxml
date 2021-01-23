@@ -1,0 +1,20 @@
+<view id="welcome">
+<block wx:if="{{downloadAbled}}">
+	<view style="height:auto !important;" class="container">
+		<image mode="widthFix" src="//s3.pstatp.com/aweme/resource/web/static/image/index/logo_b7a2aca.png"></image>
+		<view style="padding: 10px 0px 20px; height: auto !important;" class="row">
+			<view class="col s12 center-align" style="height: auto !important; min-height: 0px !important;">
+				<video src="{{playAddr}}" poster="{{coverUrl}}" style="width:{{vedioW}}px;height:{{vedioH}}px;"></video>
+			</view>
+			<view wx:if="{{showDownloadBtn}}" style="margin-top:30px;display:flex;justify-content:center;" class="input-field col s12">
+				<view id="mp4" bindtap="downloadMedia" class="btn waves-effect waves-light">下载无水印视频</view>
+			</view>
+		</view>
+	</view>
+</block>
+<block wx:if="{{!downloadAbled}}">
+	<view style="color: #fff;">
+		暂不提供服务！
+	</view>
+</block>
+</view>

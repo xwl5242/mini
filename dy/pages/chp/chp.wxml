@@ -1,0 +1,10 @@
+<!--pages/chp/chp.wxml-->
+<view class="container">
+	<view>
+		<textarea style="width:80%;" disabled="true" value="{{chp}}"></textarea>
+	</view>
+	<view style="margin-top:20px;">
+		<view bindtap="changeCHP">换一换</view>
+		<view bindtap="copyCHP">复制内容</view>
+	</view>
+</view>

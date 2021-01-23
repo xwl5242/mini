@@ -1,0 +1,5 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="container">
+  <textarea style="width:80%;" placeholder="留下您的宝贵意见吧" bindinput="bindKeyInput" value="{{suggest}}"></textarea>
+  <view class="downloadBtn" bindtap="saveSuggest">反馈留言</view>
+</view>

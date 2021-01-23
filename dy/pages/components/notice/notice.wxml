@@ -1,0 +1,4 @@
+<!--pages/components/notice/notice.wxml-->
+<view class="scroll_view_border">
+  <view class="srcoll_view">{{msg}}</view>
+</view>

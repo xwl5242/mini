@@ -1,0 +1,50 @@
+	<!-- 页面顶部菜单和搜索 -->
+	<nav-component>
+		<view class="nav main-back-color-white main">
+			<view class="navbar main main-anim">
+				<view class="search-btns main-back-color-white main-text-black main-text-center {{searchBtnClick?'main-hidden':'main-visible'}} icon-font icon-sousuo" bindtap="searchBtnClicked"></view>
+				<view class="main-back-color-white main-row {{searchBtnClick?'main-hidden':'main-visible'}}">
+					<view class="menu {{currentNavSel=='index'?'main-this':''}}" id="index" bindtap="toIndex">
+						<text class="main-text-eone">首页</text>
+					</view>
+					<view class="menu {{currentNavSel=='dy'?'main-this':''}}" id="dy" bindtap="toList">
+						<text class="main-text-eone">电影</text>
+					</view>
+					<view class="menu {{currentNavSel=='dss'?'main-this':''}}" id="ds" bindtap="toList">
+						<text class="main-text-eone">连续剧</text>
+					</view>
+					<view class="menu {{currentNavSel=='zy'?'main-this':''}}" id="zy" bindtap="toList">
+						<text class="main-text-eone">综艺</text>
+					</view>
+					<view class="menu {{currentNavSel=='dm'?'main-this':''}}" id="dm" bindtap="toList">
+						<text class="main-text-eone">动漫</text>
+					</view>
+				</view>
+				<view class="search main-back-color-white {{!searchBtnClick?'main-hidden':'main-visible'}}">
+					<view class="close" style="color: #FFE28A;font-size: 14px;" bindtap="cancelSearchBtnClicked">取消</view>
+					<form style="position: relative;">
+						<input bindinput="inputKW" bindconfirm="inputConfirm" placeholder-style="font-size: 14px;" class="input" placeholder="请输入关键字"></input>
+						<view class="submit" bindtap="toSearch"><i class="icon-font icon-sousuo"></i></view>
+					</form>
+				</view>
+			</view>
+			<view class="search-panel {{!searchBtnClick?'main-hidden':'main-visible'}} main-anim main-anim-upbit">
+				<view style="background-color: #f7f7f7 !important; color: #333 !important;">
+					<view class="key"></view>
+					<view class="box">
+						<view class="hot">
+							<view class="title main-back-color-white">热门搜索</view>
+							<view class="main-row main-back-color-white" style="z-index:1;padding: .5rem 0; font-size: 0;">
+								<view id="{{item}}" bindtap="quickSearch" wx:for="{{tops}}" wx:key="*this" class="list" style="z-index:{{!searchBtnClick?9999999:0}};">
+									<view class="main-text-eone text-left">
+									<text class="nums num{{index+1}}">{{index+1}}</text>
+									<text>{{item}}</text>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</nav-component>

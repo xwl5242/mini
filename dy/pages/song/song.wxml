@@ -1,0 +1,22 @@
+<!--pages/song/song.wxml-->
+<view class="container">
+  <notice msg="目前只支持某易音乐解析下载，后续会更新其他平台，敬请期待..." />
+  <search class="search" useType="1" initKeyWord="{{songKW}}" 
+  bind:clearKW="clearKW" bind:search="search" />
+  <view wx:if="{{!noResult}}" class="songs">
+      <view class="title">歌曲搜索结果</view>
+      <view class="list">
+        <block wx:for="{{songs}}" wx:key="*this">
+          <view class="item" data-song-id="{{item.song_id}}" data-fm="{{item.fm_url}}" data-singer="{{item.singer}}" data-song-name="{{item.song_name}}" bindtap="goPlay">
+            <view class="img">
+                <image mode="widthFix" src="{{item.fm_url}}"></image>
+            </view>
+            <view class="desc">
+                <view class="desc-title">歌手：{{item.singer}}</view>
+                <view class="desc-detail">歌曲：{{item.song_name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+  </view>
+</view>

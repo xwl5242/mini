@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/dy/dy",
+    "pages/chp/chp",
+    "pages/song/song",
+    "pages/play/play",
+    "pages/components/notice/notice",
+    "pages/gallery/gif/gif",
+    "pages/gallery/wallpaper/wallpaper",
+    "pages/gallery/wallpaper/list/list",
+    "pages/suggest/suggest",
+    "pages/dy/parse/parse"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "优软派",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,12 @@
+{
+    "setting": {
+        "es6": true,
+        "minified": false,
+        "mockUpdate": false,
+        "newFeature": false,
+        "postcss": false,
+        "urlCheck": true
+    },
+    "appid": "tt38234e9ea7196334",
+    "projectname": "youtv"
+}

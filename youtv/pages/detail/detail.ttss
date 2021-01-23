@@ -1,0 +1,35 @@
+/* pages/detail/detail.wxss */
+@import '../index/index.ttss';
+
+page {
+  background: #2B2A2A;
+}
+
+.srcoll_view {
+  position: absolute;
+  top: 0rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  white-space: nowrap;
+  line-height: 60rpx;
+  color: #FFE28A;
+  animation: myfirst 20s linear infinite;
+}
+
+@keyframes myfirst {
+  0% {
+    margin-left: 750rpx;
+  }
+
+  100% {
+    margin-left: -1500rpx;
+  }
+}
+
+.scroll_view_border {
+  position: relative;
+  width: 100%;
+  background: #313131;
+  height: 60rpx;
+  overflow: hidden;
+}

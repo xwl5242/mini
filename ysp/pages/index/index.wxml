@@ -1,0 +1,63 @@
+<!-- 菜单导航 -->
+<nav />
+<!-- 主页面 -->
+<view class="container">
+	<view class="main" style="width: 100%;">
+		<!-- 轮播图 -->
+		<view wx:if="{{showBanner}}" class="main-row">
+			<swiper autoplay="true" interval="1500" style="display: flex;">
+				<block wx:for="{{banners}}" wx:key="*this">
+					<swiper-item class="main-swip-slide">
+						<view data-tvname="{{item.tv_name}}" bindtap="toSwiperSearch" class="pic" style="background-image: url({{item.tv_img}});border-radius:5px;padding-top:45%;">
+							<view class="title main-text-eone" style="color: #FFE28A;">
+								<text class="main-text-eone text-left" style="margin-bottom: .3125rem;">{{item.tv_name}}</text>
+								<text class="main-text-eone"></text>
+							</view>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<!-- 最新更新视频 -->
+		<view class="main-layout">
+			<view class="main-list-head main-row main-padding">
+				<text class="title">最新视频</text>
+				<view class="tip main-padding">
+					<view>今日更新 <text class="main-color">{{today}}</text> 部，共 <text class="main-color">{{total}} </text>部 </view>
+				</view>
+			</view>
+			<view class="main-list-info main-row">
+				<view bindtap="toDetail" id="{{item.vod_id}}" wx:for="{{news}}" wx:key="*this" class="list main-padding main-col-xs4">
+					<view class="pic" style="display: block;background-image:url({{item.vod_pic}})">
+						<text class="vod"></text>
+						<!-- <text class="score main-back-color main-color-white">{{item.vod_serial}}</text> -->
+						<text class="remarks main-color-white main-text-center">{{item.vod_remarks}}</text>
+					</view>
+					<view class="title main-text-center main-text-eone">{{item.vod_name}}</view>
+					<text class="desc main-text-eone main-color666">{{item.vod_actor?item.vod_actor:item.vod_name}}</text>
+				</view>
+			</view>
+		</view>
+		<!-- 其他分类视频 -->
+		<view wx:for="{{mvTypes}}" wx:key="*this" class="main-layout main-row">
+			<view class="main-list-head main-padding">
+				<text class="title">{{item.k}}</text>
+				<view class="tip main-padding">
+					<view id="{{mvType[item['k']]}}" bindtap="toList"><text class="fed-more">更多</text></view>
+				</view>
+			</view>
+			<view class="main-list-info main-row">
+				<view bindtap="toDetail" id="{{mvItem.vod_id}}" wx:for="{{mvs[item.v]}}" wx:key="*this" wx:for-item="mvItem" class="list main-padding main-col-xs4">
+					<view data-lazy-vod-id="{{mvItem.vod_id}}" data-lazy-vod-type="{{item['v']}}" 
+					class="lazy-vod pic" style="display: block;background-image:url({{mvItem.show?mvItem.vod_pic:'https://www.quanchonger.com/load.gif'}})">
+						<text class="vod"></text>
+						<!-- <text class="score main-color-white main-back-color">{{mvItem.vod_serial}}</text> -->
+						<text class="remarks main-color-white main-text-center">{{mvItem.vod_remarks}}</text>
+					</view>
+					<view class="title main-text-center main-text-eone">{{mvItem.vod_name}}</view>
+					<text class="desc main-text-eone main-color666">{{mvItem.vod_actor?mvItem.vod_actor:mvItem.vod_name}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

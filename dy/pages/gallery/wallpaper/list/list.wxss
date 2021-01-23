@@ -1,0 +1,16 @@
+/* pages/gallery/wallpaper/list/list.wxss */
+page {
+  background-color: #000;
+}
+.container {
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+.container text {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.container image {
+  border-radius: 10px;
+}

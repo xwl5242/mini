@@ -1,0 +1,41 @@
+/* pages/chp/chp.wxss */
+page {
+  background: #000;
+}
+
+.container {
+  margin-top: 20px;
+  width: 100%;
+  color: #6F3F15;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.container textarea {
+  width: 90%;
+  min-height: 150px;
+  background: #FFE834;
+  border-radius: 8px;
+  padding: 10px 10px;
+}
+
+.container>view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container>view>view {
+  background: #FFE834;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
+}
+
+.container>view>view:nth-child(odd) {
+  margin-right: 25%;
+}

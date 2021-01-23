@@ -1,0 +1,12 @@
+<!--pages/gallery/wallpaper/wallpaper.wxml-->
+<view class="container">
+  <view class="weui-grids">
+    <block wx:for="{{types}}" wx:key="*this">
+      <navigator url="./list/list?t={{item.id}}" class="weui-grid">
+        <view class="item" style="background-color: {{item.color}}" bindtap="toCHP">
+          <view class="head">{{item.name}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
