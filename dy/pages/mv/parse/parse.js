@@ -6,48 +6,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    vedioId: '',
-    playAddr: '',
-    coverUrl: '',
-    vedioW: 0,
-    vedioH: 0,
-    showDownloadBtn: false,
-    downloadAbled: false
+    url: '',
+    showVideo: false
   },
-  downloadMedia: function() {
-    app.downloadMedia('vedio', this.data.playAddr);
+  onInput: function(e) {
+    this.setData({
+      url: e.detail.value
+    })
+  },
+  onParse: function(){
+    var url = this.data.url;
+    if(url) {
+      $api.send('mv/parse', {
+        url: url,
+        type: 'jh'
+      }).then(res=>{
+        // https://h5.pipix.com/s/uW4KXh
+        console.log(res);
+      });
+    }else{
+      wx.showToast({
+        icon: 'none',
+        title: '请输入地址'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    $api.switchs().then(res=>{
-      console.log(res.data.switchs);
-      var dyParseSwitch = res.data.switchs.dy_parse_switch;
-      this.setData({
-        downloadAbled: dyParseSwitch=='1'
-      });
-      if(dyParseSwitch=='1'){
-        // var fileId = '6822882071589965071';
-        var fileId = options['fileId'];
-        var sw = wx.getSystemInfoSync().windowWidth;
-        var sh = sw*0.8 / 9 * 16;
-        this.setData({
-          vedioW: sw,
-          vedioH: sh,
-          playAddr: $api.mediaApiUrl + fileId + '.mp4'
-        });
-        $api.send('dy/medias', {
-          file_id: fileId
-        }).then(res => {
-          this.setData({
-            vedioId: res.data['id'],
-            coverUrl: res.data['pic'],
-            showDownloadBtn: true
-          })
-        });
-      }
-    });
+    
   },
 
   /**

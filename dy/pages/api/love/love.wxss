@@ -6,6 +6,7 @@ page {
   padding: 10px;
   font-size: 15px;
   font-weight: 800;
+  min-width: 80vw;
   min-height: 20vh;
   margin: 40px 10px;
   border-radius: 5px;

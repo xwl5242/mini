@@ -1,23 +1,58 @@
-/* pages/download/download.wxss */
-@import "../../index/index.wxss";
-
 page {
   background: #000;
-  margin-top: 10px;
 }
-
 .container {
-  width: 100%;
+  color: #fff;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 15px 0;
 }
-
-#mp4 {
-  width: 80%;
-  background: #FFE834;
-  color: #6F3F15;
+.container .logo {
+  width: 96vw;
+}
+.container .logo image {
+  width: 100%;
+  border-radius: 10px;
+}
+.container .url {
+  width: 96vw;
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+}
+.container .url .input-box {
+  flex: 4;
+  padding: 5px;
+  border-bottom: solid 1px #eee;
+}
+.container .url .input-box input {
+  font-size: 13px;
+}
+.container .url .btn {
+  flex: 1;
+  color: #fff;
+  font-size: 14px;
+  text-align: right;
+}
+.container .url .btn text {
+  color: #FFE28A;
+  padding: 5px 10px;
+  background: #333;
   border-radius: 5px;
-  font-size: 16px;
-  height: 40px;
-  line-height: 40px;
+  border: solid 1px #333;
+}
+.show video {
+  width: 100vw;
+  height: 100vh;
+}
+.show .opt {
+  width: 80vw;
+  height: 5vh;
+  color: #fff;
+  font-size: 12px;
+  line-height: 5vh;
+  margin: 10px auto;
+  border-radius: 5px;
   text-align: center;
-  font-weight: 600;
+  border: solid 1px #eee;
 }
