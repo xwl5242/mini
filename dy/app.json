@@ -1,19 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/dy/dy",
-    "pages/chp/chp",
-    "pages/song/song",
-    "pages/play/play",
     "pages/components/notice/notice",
     "pages/gallery/gif/gif",
     "pages/gallery/wallpaper/wallpaper",
     "pages/gallery/wallpaper/list/list",
+    "pages/mv/girl/girl",
+    "pages/mv/parse/parse",
+    "pages/song/song",
     "pages/suggest/suggest",
-    "pages/dy/parse/parse"
+    "pages/api/love/love",
+    "pages/api/garbage/garbage",
+    "pages/api/short/short"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "优软派",
     "navigationBarTextStyle": "white"

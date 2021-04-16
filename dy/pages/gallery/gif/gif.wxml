@@ -4,7 +4,7 @@
   <view class="gif-list">
     <block wx:for="{{gifs}}" wx:key="*this">
       <view class="gif-list-item">
-        <image bindlongtap="saveGif" mode="widthFix" id="{{item.url}}" src="{{item.url}}"></image>
+        <image bindlongtap="saveGif" mode="widthFix" id="{{item.img}}" src="{{item.img}}"></image>
         <view>{{item.title}}</view>
       </view>
     </block>

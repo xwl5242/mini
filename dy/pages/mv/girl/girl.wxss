@@ -1,0 +1,40 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+.container video {
+  width: 100%;
+  height: 88vh;
+}
+.footer {
+  bottom: 0;
+  width: 100vw;
+  height: 12vh;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-color: #111;
+  justify-content: center;
+}
+.footer .intro {
+  width: 100%;
+  bottom: 7px;
+  color: #fff;
+  font-size: 14px;
+  position: fixed;
+  text-align: center;
+}
+.footer .download {
+  margin: 10px;
+  padding: 5px; 
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  float: left;
+}
+.footer .download .btn {
+  width: 20vw;
+  padding: 5px 45px;
+  border: solid 1px #eee;
+  border-radius: 5px;
+}

@@ -5,34 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
+    menus: [],
     searchKW: '',
-    showSearch: false
+    showSearch: false,
+    showNotice: false,
+    noticeMsg: '这里是优软派'
   },
-  toCHP: function(){
+  toTools: function(e) {
+    var url = e.currentTarget.dataset.url;
     wx.navigateTo({
-      url: '../chp/chp',
-    })
-  },
-  toDY: function() {
-    wx.navigateTo({
-      url: '../dy/dy',
-    })
-  },
-  toGIF: function() {
-    wx.navigateTo({
-      url: '../gallery/gif/gif',
-    })
-  },
-  toWallpaper: function() {
-    wx.navigateTo({
-      url: '../gallery/wallpaper/wallpaper',
+      url: '/pages/' + url,
     })
   },
   onLoad: function (options) {
     $api.switchs().then(res=>{
       var musicSwitch = res.data.switchs.music_switch;
+      var noticeSwitch = res.data.switchs.notice_switch;
+      var noticeMsg = res.data.switchs.notice_msg;
       this.setData({
-        showSearch: musicSwitch=='1'
+        showSearch: musicSwitch=='1',
+        showNotice: noticeSwitch=='1',
+        noticeMsg: noticeMsg
+      });
+    });
+    $api.menus().then(res=>{
+      this.setData({
+        menus: res.data.menus
       });
     });
   },

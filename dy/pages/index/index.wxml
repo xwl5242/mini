@@ -1,26 +1,23 @@
 <!--index.wxml-->
-<view class="container">
-  <notice msg="这里是优软派，您的生活小助手，给您带来不一样的精彩生活！" />
-  <view class="logo">
+<view class="container" style="margin-top: {{showNotice?'40px':'0px;'}}">
+	<block wx:if="{{showNotice}}">
+		<notice msg="{{noticeMsg}}" />
+	</block>
+  <!-- <view class="logo">
     <image mode="widthFix" src="../logo.png"></image>
-  </view>
-  <search wx:if="{{showSearch}}" class="search" useType="0" />
-  <!-- <view class="title">功能区</view> -->
-	<view class="tools">
-		<view class="item green" hover-class="item-hover" bindtap="toGIF">
-			<view class="head">每日动图</view>
+	</view> -->
+	<search wx:if="{{showSearch}}" class="search" useType="0" />
+	<block wx:for="{{menus}}" wx:key="id">
+		<view wx:if="{{item.show=='1'}}" class="menus">
+			<view class="title">{{item.title}}</view>
+			<block wx:for="{{item.children}}" wx:for-item="mItem" wx:key="id">
+				<view bindtap="toTools" data-url="{{mItem.url}}" wx:if="{{mItem.show=='1'}}" class="menu">
+					<view class="icon">
+						<image mode="widthFix" src="https://smart.quanchonger.com/img/{{mItem.icon}}.png"></image>
+					</view>
+					<view>{{mItem.title}}</view>
+				</view>
+			</block>
 		</view>
-		<view class="item orange" hover-class="item-hover" bindtap="toDY">
-			<view class="head">抖音解析</view>
-		</view>
-		<view class="item blue" hover-class="item-hover" bindtap="toWallpaper">
-			<view class="head">精彩壁纸</view>
-		</view>
-		<view class="item qing" hover-class="item-hover" bindtap="toCHP">
-			<view class="head">舔狗日记</view>
-		</view>
-	</view>
-  <view class="footer">
-		<navigator url="../suggest/suggest">留言反馈</navigator>
-	</view>
+	</block>
 </view>

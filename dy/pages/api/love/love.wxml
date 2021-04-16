@@ -1,0 +1,27 @@
+<!--pages/api/love/love.wxml-->
+<view class="container">
+  <block wx:if="{{word_type!='3'}}">
+    <view class="word">
+      <text>{{word}}</text>
+    </view>
+    <view class="opt">
+      <view class="next" bindtap="changeWord"><text>换一换</text></view>
+      <view class="copy" bindtap="copyWord"><text>复  制</text></view>
+    </view>
+  </block>
+  <block wx:if="{{word_type=='3'}}">
+    <view class="article-box">
+      <view class="article">
+        <view class="title">{{article.title}}</view>
+        <view class="author">{{article.author}}</view>
+        <block wx:for="{{article.content}}" wx:key="this">
+          <view class="content">{{item}}</view>
+        </block>
+      </view>
+      <view class="opt">
+        <view class="next" bindtap="changeWord"><text>换一换</text></view>
+        <view class="copy" bindtap="copyWord"><text>复  制</text></view>
+      </view>
+    </view>
+  </block>
+</view>

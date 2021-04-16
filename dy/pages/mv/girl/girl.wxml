@@ -1,0 +1,8 @@
+<view class="container">
+  <video src="{{video}}" autoplay="true"></video>
+</view>
+<view class="footer">
+  <view class="download"><view bindtap="next" class="btn">下一发</view></view>  
+  <view class="download"><view bindtap="download" class="btn">下载</view></view>  
+  <view class="intro">所有视频均采集于网络，如涉及版权，请联系我们下架!</view>
+</view>

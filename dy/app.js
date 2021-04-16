@@ -29,6 +29,7 @@ App({
     wx.downloadFile({
       url: url,
       success(res) {
+        console.log(res);
         if (res.statusCode == 200) {
           wx.hideLoading();
           if(mediaType=='image'){
@@ -46,7 +47,7 @@ App({
               }
             })
           }
-          if(mediaType=='vedio'){
+          if(mediaType=='video'){
             wx.saveVideoToPhotosAlbum({
               filePath: res.tempFilePath,
               success(res) {
@@ -62,6 +63,9 @@ App({
             })
           }
         }
+      },
+      fail(res) {
+        console.log(res);
       }
     });
   }

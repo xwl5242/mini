@@ -1,44 +1,20 @@
-// pages/chp/chp.js
-const app = getApp()
-const $api = require("../../utils/api.js").API
+// pages/api/garbage/garbage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    chp: ''
+
   },
-  changeCHP: function(){
-    this.goCHP();
-  },
-  copyCHP: function(){
-    wx.setClipboardData({
-      data: this.data.chp,
-      success(res){
-       
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.goCHP();
+
   },
-  goCHP: function(){
-    wx.showLoading({
-      title: '生成中...',
-    });
-    $api.chp().then(res => {
-      this.setData({
-        chp: res.data
-      });
-      wx.hideLoading({
-        success: (res) => {},
-      });
-    });
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

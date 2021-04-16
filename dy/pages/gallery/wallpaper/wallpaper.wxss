@@ -9,6 +9,7 @@ page {
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-top: 10px;
 }
 .weui-grids:before {
   content: " ";
@@ -17,7 +18,7 @@ page {
   top: 0;
   right: 0;
   height: 1px;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  /* border-top: 1px solid rgba(0,0,0,0.1); */
   transform-origin: 0 0;
   transform: scaleY(0.5);
 }
@@ -53,7 +54,7 @@ page {
   top: 0;
   width: 1px;
   bottom: 0;
-  border-right: 1px solid rgba(0,0,0,0.1);
+  /* border-right: 1px solid rgba(0,0,0,0.1); */
   transform-origin: 100% 0;
   transform: scaleX(0.5);
 }
@@ -64,7 +65,7 @@ page {
   bottom: 0;
   right: 0;
   height: 1px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  /* border-bottom: 1px solid rgba(0,0,0,0.1); */
   transform-origin: 0 100%;
   transform: scaleY(0.5);
 }

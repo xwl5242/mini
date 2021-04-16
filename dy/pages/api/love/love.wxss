@@ -1,0 +1,69 @@
+page {
+  color: #fff;
+  background-color: #000;
+}
+.word {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  min-height: 20vh;
+  margin: 40px 10px;
+  border-radius: 5px;
+  border: solid 1px #eee;
+}
+
+.container .opt, .article-box .opt {
+  width: 80vw;
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+}
+.container .opt .next {
+  flex: 1;
+  text-align: left;
+  margin-left: 5px;
+}
+.container .opt .copy {
+  flex: 1;
+  text-align: right;
+  margin-right: 5px;
+}
+.container .opt view text {
+  padding: 5px 15px;
+  border: solid 1px #eee;
+  border-radius: 5px;
+}
+.article{
+  padding: 15px;
+  margin-bottom: 8vh;
+}
+.article view.content {
+  text-indent: 2em;
+  font-size: 15px;
+  font-weight: 600;
+}
+.article .title {
+  margin: 5px;
+  font-size: 24px;
+  text-align: center;
+}
+.article .author {
+  margin: 5px;
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+}
+.article-box .opt {
+  bottom: 0;
+  height: 8vh;
+  width: 100vw;
+  position: fixed;
+  align-items: center;
+  background: rgba(0,0,0,.8);
+}
+.article-box .opt .next {
+  margin-left: 15px;
+}
+.article-box .opt .copy {
+  margin-right: 15px;
+}

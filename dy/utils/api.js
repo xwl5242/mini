@@ -23,16 +23,14 @@ function request(url, method, data) {
 }
 
 // 所有api地址
-const chpApi = "chp";
-const mediaApiUrl = baseURL + 'dy/media/';
-const switchsApi = "switchs"
+const menusApi = "menus";
+const switchsApi = "switch";
 // 所有api请求
 const API = {
   sendPost: (url, data) => request(url, POST, data),
   send: (url, data) => request(url, GET, data),
-  chp: data => request(chpApi, GET, data),
   switchs: data => request(switchsApi, GET, data),
-  mediaApiUrl: mediaApiUrl
+  menus: data => request(menusApi, GET, data),
 }
 
 module.exports = {
