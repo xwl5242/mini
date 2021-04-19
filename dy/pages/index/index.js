@@ -22,8 +22,8 @@ Page({
       var musicSwitch = res.data.switchs.music_switch;
       var noticeSwitch = res.data.switchs.notice_switch;
       var noticeMsg = res.data.switchs.notice_msg;
+      wx.setStorageSync('switch', musicSwitch);
       this.setData({
-        showSearch: musicSwitch=='1',
         showNotice: noticeSwitch=='1',
         noticeMsg: noticeMsg
       });

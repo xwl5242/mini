@@ -1,2 +1,9 @@
-<!--pages/api/garbage/garbage.wxml-->
-<text>pages/api/garbage/garbage.wxml</text>
+<view class="container">
+  <view class="model">
+    <input type="text" bindinput="onInput" placeholder="请输入要丢弃的物品" value="" />
+    <view class="btn" bindtap="onSearch"><text>查询</text></view>
+  </view>
+  <view class="result">
+    <text>{{result}}</text>
+  </view>
+</view>

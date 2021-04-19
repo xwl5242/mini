@@ -17,18 +17,15 @@ Page({
   onParse: function(){
     var url = this.data.url;
     if(url) {
-      $api.send('mv/parse', {
-        url: url,
-        type: 'jh'
-      }).then(res=>{
-        // https://h5.pipix.com/s/uW4KXh
-        console.log(res);
+      wx.showToast({
+        icon: 'none',
+        title: '服务升级中'
       });
     }else{
       wx.showToast({
         icon: 'none',
         title: '请输入地址'
-      })
+      });
     }
   },
   /**

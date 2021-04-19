@@ -1,5 +1,6 @@
 <view class="container">
-  <video src="{{video}}" autoplay="true"></video>
+  <video wx:if="{{showVideo}}" src="{{video}}" autoplay="true"></video>
+  <view class="noVideo" wx:if="{{!showVideo}}">暂无服务！</view>
 </view>
 <view class="footer">
   <view class="download"><view bindtap="next" class="btn">下一发</view></view>  

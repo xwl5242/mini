@@ -1,1 +1,16 @@
-/* pages/api/short/short.wxss */
+@import '../garbage/garbage.wxss';
+.container .opt {
+  width: 100%;
+  display: flex;
+  margin: 25px auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.container .opt .copy, .container .opt .switch {
+  flex: 1;
+  padding: 5px 0;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: solid 1px #eee;
+}

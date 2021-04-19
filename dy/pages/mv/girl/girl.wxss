@@ -2,9 +2,14 @@
   width: 100vw;
   height: 100vh;
 }
-.container video {
+.container video, .container .noVideo {
   width: 100%;
   height: 88vh;
+}
+.container .noVideo {
+  color: #fff;
+  text-align: center;
+  background: #000;
 }
 .footer {
   bottom: 0;

@@ -20,4 +20,7 @@
 			</block>
 		</view>
 	</block>
+	<view wx:if="{{showNotice}}" class="fans">
+		<text>关注 "枫婷晚" 公众号，获取更多精彩内容！</text>
+	</view>
 </view>

@@ -31,7 +31,11 @@ Page({
   },
   savePNG: function(e){
     var src = e.currentTarget.id;
-    app.downloadMedia('image', src);
+    $api.send('wallpaper/download?url='+src).then(res=>{
+      if(res.data) {
+        app.downloadMedia('image', 'https://smart.quanchonger.com/smart/media/'+res.data+'.png');
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

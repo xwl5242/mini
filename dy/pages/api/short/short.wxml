@@ -1,2 +1,13 @@
-<!--pages/api/short/short.wxml-->
-<text>pages/api/short/short.wxml</text>
+<view class="container">
+  <view class="model">
+    <input type="text" bindinput="onInput" placeholder="请输入要缩短的长链接" value="" />
+    <view class="btn" bindtap="onParse"><text>转换</text></view>
+  </view>
+  <view class="result">
+    <text>{{result}}</text>
+  </view>
+  <view wx:if="{{showOpt}}" class="opt">
+    <text class="copy" bindtap="onCopy">复制</text>
+    <text class="switch" bindtap="onParse">换一换</text>
+  </view>
+</view>
