@@ -21,18 +21,11 @@ function request(url, method, data) {
     })
   });
 }
-
-// 所有api地址
-const menusApi = "menus";
-const switchsApi = "switch";
 // 所有api请求
 const API = {
   sendPost: (url, data) => request(url, POST, data),
-  send: (url, data) => request(url, GET, data),
-  switchs: data => request(switchsApi, GET, data),
-  menus: data => request(menusApi, GET, data),
+  send: (url, data) => request(url, GET, data)
 }
-
 module.exports = {
   API: API,
 }

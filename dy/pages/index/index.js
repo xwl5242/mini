@@ -1,13 +1,9 @@
-const app = getApp()
-const $api = require("../../utils/api.js").API
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     menus: [],
-    searchKW: '',
-    showSearch: false,
     showNotice: false,
     noticeMsg: '这里是优软派'
   },
@@ -18,20 +14,12 @@ Page({
     })
   },
   onLoad: function (options) {
-    $api.switchs().then(res=>{
-      var musicSwitch = res.data.switchs.music_switch;
-      var noticeSwitch = res.data.switchs.notice_switch;
-      var noticeMsg = res.data.switchs.notice_msg;
-      wx.setStorageSync('switch', musicSwitch);
-      this.setData({
-        showNotice: noticeSwitch=='1',
-        noticeMsg: noticeMsg
-      });
-    });
-    $api.menus().then(res=>{
-      this.setData({
-        menus: res.data.menus
-      });
+    var menus = wx.getStorageSync('menus');
+    var switchs = wx.getStorageSync('switch');
+    this.setData({
+      menus: menus,
+      noticeMsg: switchs['notice_msg'],
+      showNotice: switchs['notice_switch'] == '1'
     });
   },
 

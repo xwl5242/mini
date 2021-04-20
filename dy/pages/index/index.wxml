@@ -6,7 +6,6 @@
   <!-- <view class="logo">
     <image mode="widthFix" src="../logo.png"></image>
 	</view> -->
-	<search wx:if="{{showSearch}}" class="search" useType="0" />
 	<block wx:for="{{menus}}" wx:key="id">
 		<view wx:if="{{item.show=='1'}}" class="menus">
 			<view class="title">{{item.title}}</view>

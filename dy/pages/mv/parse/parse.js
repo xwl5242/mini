@@ -7,6 +7,8 @@ Page({
    */
   data: {
     url: '',
+    curFileNo: '',
+    videoUrl: '',
     showVideo: false
   },
   onInput: function(e) {
@@ -14,13 +16,28 @@ Page({
       url: e.detail.value
     })
   },
+  onDownload: function(e) {
+    var downloadUrl = 'https://smart.quanchonger.com/smart/mv/girl/download/' + this.data.curFileNo
+    app.downloadMedia('video', downloadUrl);
+  },
   onParse: function(){
     var url = this.data.url;
+    var switchs = wx.getStorageSync('switch');
     if(url) {
-      wx.showToast({
-        icon: 'none',
-        title: '服务升级中'
-      });
+      if(switchs['video_switch'] == '1') {
+        $api.send('mv/parse?type=jh&url='+url).then(res=>{
+          this.setData({
+            showVideo: true,
+            videoUrl: res.data.url,
+            curFileNo: res.data.file_no
+          });
+        });
+      }else{
+        wx.showToast({
+          icon: 'none',
+          title: '服务升级中'
+        });
+      }
     }else{
       wx.showToast({
         icon: 'none',
@@ -32,7 +49,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
 
   /**

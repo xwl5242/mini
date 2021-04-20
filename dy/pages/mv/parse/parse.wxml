@@ -10,8 +10,14 @@
 			<text>解析</text>
 		</view>
 	</view>
-	<view wx:if="{{!showVideo}}" class="intro">使用说明</view>
+	<view wx:if="{{!showVideo}}" class="intro">
+		<view style="font-size: 16px;">使用说明：</view>
+		<view style="font-size: 14px;">1：复制短视频地址，粘贴到地址输入框中。</view>
+		<view style="font-size: 14px;">2：点击右侧解析按钮，等待解析服务的调用。</view>
+		<view style="font-size: 14px;font-weight: 800;">注：一般视频格式为：https://h5.pipix.com/s/uW4KXh/</view>
+	</view>
 	<view wx:if="{{showVideo}}" class="show">
-		<view class="opt">下载</view>
+		<video wx:if="{{showVideo}}" src="{{videoUrl}}"></video>
+		<view class="opt" bindtap="onDownload">下载</view>
 	</view>
 </view>

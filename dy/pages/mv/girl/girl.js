@@ -21,12 +21,14 @@ Page({
     }
   },
   fetch: function() {
-    $api.send('mv/girl').then(res=>{
-      this.setData({
-        video: res.data.url,
-        fileNo: res.data.file_no
+    if(this.data.showVideo) {
+      $api.send('mv/girl').then(res=>{
+        this.setData({
+          video: res.data.url,
+          fileNo: res.data.file_no
+        })
       })
-    })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -34,7 +36,7 @@ Page({
   onLoad: function (options) {
     var showVideo = wx.getStorageSync('switch');
     this.setData({
-      showVideo: showVideo=='1'
+      showVideo: showVideo['video_switch']=='1'
     });
     this.fetch();
   },
@@ -85,6 +87,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    if(this.data.showVideo) {
+      return {
+        title: '火辣辣',
+        path: 'pages/mv/girl/girl',
+        imageUrl: 'https://smart.quanchonger.com/soft/girl.png'
+      }
+    }
   }
 })

@@ -41,6 +41,14 @@ page {
   border-radius: 5px;
   border: solid 1px #333;
 }
+.container .intro {
+  width: 96vw;
+  text-align: left;
+  margin-top: 30px;
+}
+.container .intro > view {
+  margin: 5px 0;
+}
 .show video {
   width: 100vw;
   height: 100vh;

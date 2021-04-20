@@ -1,10 +1,21 @@
 //app.js
+const VER = "V1"
+const $api = require("./utils/api.js").API
 App({
   onLaunch: function () {
+    // 配置开关
+    $api.send('switch/'+VER).then(res=>{
+      wx.setStorageSync('switch', res.data.switchs);
+    });
+    // 小程序菜单
+    $api.send('menus?ver='+VER).then(res=>{
+      wx.setStorageSync('menus', res.data.menus);
+    });
   },
   globalData: {
   },
-  downloadMedia: function(mediaType,downloadUrl){
+  // 下载媒体，mediaType：img-图片；video-视频
+  downloadMedia: function(mediaType, downloadUrl){
     wx.getSetting({
       success: (res) => {
         //检查是否有访问相册的权限，如果没有则通过wx.authorize方法授权
@@ -22,6 +33,7 @@ App({
       }
     });
   },
+  // 保存媒体文件
   saveMedia: function(mediaType, url){
     wx.showLoading({
       title: '处理中...'
