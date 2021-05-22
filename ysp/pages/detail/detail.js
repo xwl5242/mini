@@ -27,8 +27,9 @@ Page({
     });
   },
   // play
-  toPlay(e) {
+  toPlay: function(e) {
     var play_url = e.currentTarget.dataset.url;
+    var play_from = e.currentTarget.dataset.from;
     var data_index = e.currentTarget.dataset.index;
     if(!this.data.playerStatus){
       wx.showToast({
@@ -36,9 +37,19 @@ Page({
         icon: 'error'
       });
     }else{
+      if(play_from == 'leduo') {
+        $api.send('get/real/url/'+play_url).then(res=>{
+          this.setData({
+            curPlayUrl: res.data.url
+          });
+        });
+      }else{
+        this.setData({
+          curPlayUrl: play_url
+        });
+      }
       this.setData({
         showVideo: true,
-        curPlayUrl: play_url,
         curPlayIndex: data_index
       });
       wx.showToast({
@@ -53,16 +64,24 @@ Page({
   onLoad: function (options) {
     var vodId = options['vod_id'];
     // search setting
-    $api.setting().then(res => {
+    let ads = wx.getStorageSync('ADS')
+    let status = wx.getStorageSync('STATUS');
+    if(status == '1') {
       this.setData({
-        playerStatus: res.data.setting['player_status']=='1',
-        noticeStatus: res.data.setting['notice_status']=='1',
-        notice: res.data.setting['notice_content']
+        notice: ads,
+        playerStatus: true,
+        noticeStatus: true
       });
-    });
+    }else{
+      this.setData({
+        playerStatus: false,
+        noticeStatus: false
+      });
+    }
     // search vod detail
     $api.send('detail/'+vodId, {}).then(res => {
       var purl = res.data.mv.vod_play_url;
+      var playFrom = res.data.mv.vod_play_from;
       if(purl){
         var purls = purl.split('$$$')
         var playUrls = {}
@@ -74,6 +93,7 @@ Page({
             var temp = subPlayUrls[j].split('$')
             urlO['k'] = temp[0]
             urlO['v'] = temp[1]
+            urlO['f'] = playFrom
             playUrlList.push(urlO);
           }
           playUrls[i] = playUrlList;

@@ -1,5 +1,8 @@
 <nav />
 <view class="main" style="margin-top: 3.2rem;">
+	<view wx:if="{{showTips}}" class="main-layout" style="padding: .5rem;font-size: 12px;">
+		为避免小程序被封后迷路，请大家关注微信公众号<strong> "枫婷晚" </strong>。
+	</view>
 	<view class="main-layout main-back-color-white">
 		<view class="main-list-head main-row main-padding">
 			<view class="title">
@@ -13,7 +16,7 @@
 			</view>
 		</block>
 		<block wx:else>
-			<ad unit-id="adunit-eaf232d323404d77" ad-intervals="55"></ad>
+			<!-- <ad unit-id="adunit-eaf232d323404d77" ad-intervals="55"></ad> -->
 			<view wx:for="{{mvs}}" wx:key="*this" class="vod-info main-padding main-margin main-row mian-over">
 				<view class="vod-list-info main-col-xs3">
 					<view bindtap="showDetail" id="{{item.vod_id}}" class="pic" style="display: block; background-image: url({{item.vod_pic}});">

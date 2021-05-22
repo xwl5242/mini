@@ -10,7 +10,8 @@ Page({
   data: {
     mvs: [],
     mv_keys: [],
-    mv_types: {}
+    mv_types: {},
+    showTips: false
   },
   toDetail(e){
     var vodId = e.currentTarget.id;
@@ -34,40 +35,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getMVTypes().then(res=>{
-      let map = {};
-      for(let i=0;i<res.length;i++) {
-        map[res[i]['type_id']] = res[i];
-      }
+    let status = wx.getStorageSync('STATUS');
+    this.setData({
+      showTips: status == '1'
+    });
+    let res = wx.getStorageSync('mv_types');
+    let map = {};
+    for(let i=0;i<res.length;i++) {
+      map[res[i]['type_id']] = res[i];
+    }
+    this.setData({
+      mv_types: map
+    });
+    var type = options['type'];
+    $api.send('mv/type/'+type+'/0', {}).then(res => {
+      var mvs = res.data.mvs
+      var mv_keys = Object.keys(mvs)
+      mvs[mv_keys[0]].map(o => {
+        o['show'] = true; return o;
+      })
       this.setData({
-        mv_types: map
-      });
-      var type = options['type'];
-      $api.send('mv/type/'+type+'/0', {}).then(res => {
-        var mvs = res.data.mvs
-        var mv_keys = Object.keys(mvs)
-        mvs[mv_keys[0]].map(o => {
-          o['show'] = true; return o;
-        })
-        this.setData({
-          mvs: mvs,
-          mv_keys: mv_keys
-        })
-      });
+        mvs: mvs,
+        mv_keys: mv_keys
+      })
     });
     // ad
-    if (wx.createInterstitialAd) {
-      interstitialAd = wx.createInterstitialAd({
-        adUnitId: 'adunit-ad2dce36d63809d4'
-      })
-      interstitialAd.onLoad(() => {})
-      interstitialAd.onError((err) => {})
-      interstitialAd.onClose(() => {})
-      // show ad
-      if(interstitialAd) {
-        interstitialAd.show().catch((err) => {console.error(err)})
-      }
-    }
   },
 
   /**

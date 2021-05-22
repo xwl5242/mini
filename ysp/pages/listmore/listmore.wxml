@@ -1,5 +1,8 @@
 	<nav />
 	<view class="main" style="margin-top: 3.2rem;">
+		<view wx:if="{{showTips}}" class="main-layout" style="padding: .5rem;font-size: 12px;">
+			为避免小程序被封后迷路，请大家关注微信公众号<strong> "枫婷晚" </strong>。
+		</view>
 		<view class="main-layout main-back-color-white">
 			<view class="main-list-head main-row main-padding">
 				<view class="title">{{title}}</view>

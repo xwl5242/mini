@@ -10,7 +10,8 @@ Page({
     mvs: [],
     total: 0,
     title: '',
-    curType: ''
+    curType: '',
+    showTips: false
   },
 
   /**
@@ -49,6 +50,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let status = wx.getStorageSync('STATUS');
+    this.setData({
+      showTips: status == '1'
+    });
     var mv_type = options['mv_type']
     var mv_type_name = options['mv_type_name']
     this.setData({

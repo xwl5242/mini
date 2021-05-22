@@ -245,7 +245,7 @@
 }
 
 .main-row {
-  width: 98vw;
+  width: 100vw;
   font-size: 13px;
   position: relative;
   overflow: hidden;

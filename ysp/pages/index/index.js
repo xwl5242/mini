@@ -1,12 +1,11 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const $init = require("../../utils/init")
 const $api = require("../../utils/api").API
 Page({
   data: {
     mvs: {},
-    news: $init.NEWS,
+    news: [],
     tops: [],
     total: 0,
     today: 0,
@@ -31,27 +30,28 @@ Page({
     })
   },
   // 前往vod详情页面
-  toDetail(e){
+  toDetail: function(e){
     var vodId = e.currentTarget.id;
     wx.navigateTo({
       url: '../detail/detail?vod_id='+vodId,
     })
   },
-  onLoad: function () {
+  init: function() {
     // 查询设置信息，判断是否要显示banner
-    $api.setting().then(res => {
-      let isShowBanner = res.data.setting['banner_status']=='1';
-      if(isShowBanner) {
+    let status = wx.getStorageSync('STATUS');
+    if(status == '1') {
+      $api.banner().then(res => {
         this.setData({
-          showBanner: true
+          showBanner: true,
+          banners: res.data.banner_list
         });
-        $api.banner().then(res => {
-          this.setData({
-            banners: res.data.banner_list.filter(e => {return e.tv_img.indexOf('common_blank')<0})
-          })
-        });
-      }
-    });
+      });
+    }else{
+      this.setData({
+        banners: [],
+        showBanner: false
+      });
+    }
     $api.index().then(res => {
       this.setData({
         mvs: res.data.mvs,
@@ -59,6 +59,16 @@ Page({
         total: res.data.total,
         today: res.data.today
       })
+    });
+  },
+  onLoad: function () {
+    $api.send("settings").then(res=>{
+      let settings = res.data.settings;
+      wx.setStorageSync('ADS', settings['ads']);
+      wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
+      wx.setStorageSync('SHOW_VODS', settings['show_vods']);
+      wx.setStorageSync('STATUS', settings['status']);
+      this.init();
     });
   },
   /**
