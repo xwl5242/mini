@@ -1,0 +1,67 @@
+/* pages/parse/parse.wxss */
+page {
+  background: #2B2A2A;
+}
+.container {
+  color: #fff;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.container .logo {
+  width: 100vw;
+}
+.container .logo image {
+  width: 100%;
+  /* border-radius: 10px; */
+}
+.container .url {
+  width: 96vw;
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+}
+.container .url .input-box {
+  flex: 4;
+  padding: 5px;
+  border-bottom: solid 1px #eee;
+}
+.container .url .input-box input {
+  font-size: 13px;
+}
+.container .url .btn {
+  flex: 1;
+  color: #fff;
+  font-size: 14px;
+  text-align: right;
+}
+.container .url .btn text {
+  color: #FFE28A;
+  padding: 5px 10px;
+  background: #333;
+  border-radius: 5px;
+  border: solid 1px #333;
+}
+.container .intro {
+  width: 96vw;
+  text-align: left;
+  margin-top: 30px;
+}
+.container .intro > view {
+  margin: 5px 0;
+}
+.show video {
+  width: 100vw;
+  height: 40vh;
+}
+.show .opt {
+  width: 80vw;
+  height: 5vh;
+  color: #fff;
+  font-size: 12px;
+  line-height: 5vh;
+  margin: 10px auto;
+  border-radius: 5px;
+  text-align: center;
+  border: solid 1px #eee;
+}

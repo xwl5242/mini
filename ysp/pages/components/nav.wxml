@@ -19,6 +19,9 @@
 					<view class="menu {{currentNavSel=='dm'?'main-this':''}}" id="dm" bindtap="toList">
 						<text class="main-text-eone">动漫</text>
 					</view>
+					<view wx:if="{{showParse}}" class="menu {{currentNavSel=='parse'?'main-this':''}}" id="parse" bindtap="toList">
+						<text class="main-text-eone">VIP解析</text>
+					</view>
 				</view>
 				<view class="search main-back-color-white {{!searchBtnClick?'main-hidden':'main-visible'}}">
 					<view class="close" style="color: #FFE28A;font-size: 14px;" bindtap="cancelSearchBtnClicked">取消</view>

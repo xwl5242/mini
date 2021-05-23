@@ -68,6 +68,7 @@ Page({
       wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
       wx.setStorageSync('SHOW_VODS', settings['show_vods']);
       wx.setStorageSync('STATUS', settings['status']);
+      wx.setStorageSync('PARSE_ENABLE', settings['parse_enable'])
       this.init();
     });
   },

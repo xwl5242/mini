@@ -1,0 +1,24 @@
+<!--pages/parse/parse.wxml-->
+<view class="container">
+	<view class="logo">
+		<image mode="widthFix" src="https://smart.quanchonger.com/img/video.jpg"></image>
+	</view>
+	<view class="url">
+		<view class="input-box">
+			<input bindinput="onInput" type="text" placeholder="请输入视频地址" value="" />
+		</view>
+		<view bindtap="onParse" class="btn">
+			<text>解析</text>
+		</view>
+	</view>
+  <view wx:if="{{showVideo}}" class="show">
+		<video wx:if="{{showVideo}}" src="{{videoUrl}}"></video>
+	</view>
+	<view wx:if="{{!showVideo}}" class="intro">
+		<view style="font-size: 16px;">使用说明：</view>
+		<view style="font-size: 14px;">1：复制各大视频网站的VIP会员视频地址。</view>
+		<view style="font-size: 14px;">2：粘贴地址到输入框中，点击右侧的解析按钮。</view>
+		<view style="font-size: 14px;">3：耐心等待视频解析，解析成功后即可观看视频。</view>
+		<view style="font-size: 14px;font-weight: 800;">注：视频地址就是浏览器地址栏中的地址</view>
+	</view>
+</view>
