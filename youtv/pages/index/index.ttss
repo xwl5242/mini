@@ -63,7 +63,7 @@
   width: 30px;
   height: 25px;
   line-height: 25px;
-  top: -1.8rem;
+  top: -1.6rem;
   background-color: transparent;
   color: #666;
   border: 0;
@@ -82,7 +82,7 @@
   top: .0625rem;
   right: 0;
   bottom: .0625rem;
-  width: 7.375rem;
+  width: 4rem;
   height: 2.375rem;
   line-height: 2.375rem;
   z-index: 1;
@@ -96,7 +96,7 @@
 }
 
 .nav .search-panel .title {
-  font-size: .875rem !important;
+  font-size: .675rem !important;
   position: relative;
   padding: 0 .9375rem !important;
   line-height: 2.5rem;
@@ -114,7 +114,7 @@
 .nav .search-panel view.list>view {
   display: block;
   padding: 0 .9375rem;
-  font-size: .875rem;
+  font-size: .675rem;
   height: 2.25rem;
   line-height: 2.25rem;
 
@@ -164,7 +164,7 @@
   font-weight: 700;
 
   display: block;
-  font-size: .875rem;
+  font-size: .75rem;
 }
 
 
@@ -245,7 +245,7 @@
 }
 
 .main-row {
-  width: 98vw;
+  width: 100vw;
   font-size: 13px;
   position: relative;
   overflow: hidden;
@@ -259,6 +259,7 @@
   top: 0;
   right: 0;
   float: right;
+  margin-right: .55rem;
 }
 
 .main-padding {
@@ -324,12 +325,12 @@
 
 .main-col-xs3 {
   float: left;
-  width: 23.22222%;
+  width: 22.22222%;
 }
 
 .main-col-xs4 {
   float: left;
-  width: 31%;
+  width: 30.555%;
 }
 
 .main-col-xs9 {
@@ -363,13 +364,13 @@
 .main-list-info .list .title {
   margin-top: .375rem;
   line-height: 1.125rem;
-  font-size: .875rem !important;
+  font-size: .675rem !important;
 }
 
 .main-list-info .list .desc {
   margin-top: .3125rem;
   line-height: 1rem;
-  font-size: .75rem !important;
+  font-size: .65rem !important;
 }
 
 .main-list-info .list .pic .vod {

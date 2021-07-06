@@ -9,6 +9,7 @@ Page({
   data: {
     mvs: [],
     currentKw: '',
+    showTips: false,
   },
   showDetail(e) {
     var vod_id = e.currentTarget.id;
@@ -20,6 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let status = tt.getStorageSync('STATUS');
+    this.setData({
+      showTips: status == '1'
+    });
     var kw = options['kw']
     if(kw) {
       this.setData({

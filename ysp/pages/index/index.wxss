@@ -82,7 +82,7 @@
   top: .0625rem;
   right: 0;
   bottom: .0625rem;
-  width: 7.375rem;
+  width: 2.8rem;
   height: 2.375rem;
   line-height: 2.375rem;
   z-index: 1;

@@ -10,7 +10,7 @@
 					<view class="menu {{currentNavSel=='dy'?'main-this':''}}" id="dy" bindtap="toList">
 						<text class="main-text-eone">电影</text>
 					</view>
-					<view class="menu {{currentNavSel=='dss'?'main-this':''}}" id="ds" bindtap="toList">
+					<view class="menu {{currentNavSel=='ds'?'main-this':''}}" id="ds" bindtap="toList">
 						<text class="main-text-eone">连续剧</text>
 					</view>
 					<view class="menu {{currentNavSel=='zy'?'main-this':''}}" id="zy" bindtap="toList">
@@ -18,6 +18,9 @@
 					</view>
 					<view class="menu {{currentNavSel=='dm'?'main-this':''}}" id="dm" bindtap="toList">
 						<text class="main-text-eone">动漫</text>
+					</view>
+					<view tt:if="{{showParse}}" class="menu {{currentNavSel=='parse'?'main-this':''}}" id="parse" bindtap="toList">
+						<text class="main-text-eone">VIP解析</text>
 					</view>
 				</view>
 				<view class="search main-back-color-white {{!searchBtnClick?'main-hidden':'main-visible'}}">

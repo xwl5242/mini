@@ -8,5 +8,11 @@
         "urlCheck": true
     },
     "appid": "tt38234e9ea7196334",
-    "projectname": "youtv"
+    "projectname": "youtv",
+    "projectType": "app",
+    "condition": {
+        "miniprogram": {
+            "current": -1
+        }
+    }
 }

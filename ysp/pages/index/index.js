@@ -1,11 +1,12 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const $init = require("../../utils/init")
 const $api = require("../../utils/api").API
 Page({
   data: {
     mvs: {},
-    news: [],
+    news: $init.NEWS,
     tops: [],
     total: 0,
     today: 0,

@@ -31,6 +31,13 @@
 	<view tt:if="{{showVideo}}" class="main-layout main-row main-back-color-white">
 		<video src="{{curPlayUrl}}" style="width: 100%; height: 210px;"></video>
 	</view>
+	<!-- <ad unit-id="adunit-eaf232d323404d77" ad-intervals="55"></ad> -->
+	<view tt:if="{{noticeStatus && !showVideo}}" class="main-layout" style="padding: .5rem;font-size: 12px;color: red!important;">
+		不要相信视频中任意形式的广告，且看且珍惜，祝大家观影愉快!
+	</view>
+	<view tt:if="{{false}}" class="main-layout" style="padding: .5rem;font-size: 12px;">
+		为避免小程序被封后迷路，请大家关注微信公众号 "枫婷晚" 。
+	</view>
 	<view class="main-row main-layout main-back-color-white">
 		<view tt:if="{{playerStatus}}" class="main-list-head main-rows main-padding">
 			<view class="title main-color">播放列表</view>
@@ -50,12 +57,12 @@
 					</view>
 					<view class="vod-play-item main-visible">
 						<view class="main-row">
-						<block tt:for="{{playSourceNum}}" tt:for-item="playSourceItem" tt:key="*this">
-							<view bindtap="toPlay" tt:for="{{mvPlayUrls[playSourceItem]}}" tt:key="*this" 
-							data-index="{{index}}" data-url="{{item.v}}" class="main-padding main-col-xs3 {{curPlaySourceIndex==playSourceItem?'main-visible':'main-hidden'}}">
-								<text class="vod-play-btns vod-btn-border main-text-eone {{index==curPlayIndex?'main-color-black main-back-color':''}}">{{item.k}}</text>
-							</view>
-						</block>
+							<block tt:for="{{playSourceNum}}" tt:for-item="playSourceItem" tt:key="*this">
+								<view bindtap="toPlay" tt:for="{{mvPlayUrls[playSourceItem]}}" tt:key="*this" 
+								data-index="{{index}}" data-url="{{item.v}}" data-from="{{item.f}}" class="main-padding main-col-xs3 {{curPlaySourceIndex==playSourceItem?'main-visible':'main-hidden'}}">
+									<text class="vod-play-btns vod-btn-border main-text-eone {{index==curPlayIndex?'main-color-black main-back-color':''}}">{{item.k}}</text>
+								</view>
+							</block>
 						</view>
 					</view>
 				</view>

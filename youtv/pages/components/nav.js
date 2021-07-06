@@ -6,6 +6,7 @@ Component({
   data: {
     tops: [],
     searchKey: '',
+    showParse: false,
     searchBtnClick: false,
     currentNavSel: 'index'
   }, // 私有数据，可用于模版渲染
@@ -21,8 +22,9 @@ Component({
   attached: function () { }, // 此处attached的声明会被lifetimes字段中的声明覆盖
   ready: function() {
     this.setData({
+      showParse: tt.getStorageSync('STATUS') == '1',
       currentNavSel: tt.getStorageSync('nav_currentNavSel') || 'index'
-    })
+    });
     $api.top().then(res => {
       this.setData({
         tops: res.data.top_list
@@ -46,7 +48,7 @@ Component({
       var type = e.currentTarget.id;
       tt.setStorageSync('nav_currentNavSel', type)
       tt.navigateTo({
-        url: '../list/list?type=' + type,
+        url: type=='parse'?'../parse/parse':('../list/list?type=' + type),
       })
     },
     inputConfirm: function(e) {

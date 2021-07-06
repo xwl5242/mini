@@ -7,18 +7,8 @@ App({
     this.getPageHeight().then(res => {
       this.globalData.pageHeight = res
     });
-  },
-  getMVTypes: function() {
-    return new Promise((resolve, reject)=>{
-      var types = tt.getStorageSync('mv_types');
-      if(!types) {
-        // 获取所有视频类型
-        $api.send('mvtypes', {}).then(res => {
-          tt.setStorageSync('mv_types', res.data.mv_types);
-          types = res.data.mv_types;
-        });
-      }
-      resolve(types);
+    $api.send('mvtypes', {}).then(res => {
+      tt.setStorageSync('mv_types', res.data.mv_types);
     });
   },
   /**

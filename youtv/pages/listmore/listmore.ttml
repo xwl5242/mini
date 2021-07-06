@@ -1,19 +1,22 @@
-	<nav />
-	<view class="main" style="margin-top: 3.2rem;">
-		<view class="main-layout main-back-color-white">
-			<view class="main-list-head main-row main-padding">
-				<view class="title">{{title}}</view>
-			</view>
-			<view class="main-list-info main-row">
-				<view bindtap="toDetail" id="{{mvItem.vod_id}}" tt:for="{{mvs}}" tt:key="*this" tt:for-item="mvItem" class="list main-padding main-col-xs4">
-					<view class="pic" style="display: block; background-image: url({{mvItem['vod_pic']}});">
-						<span class="vod"></span>
-						<!-- <span class="score main-color-white main-back-color">{{mvItem['vod_serial']}}</span> -->
-						<span class="remarks main-color-white main-text-center">{{mvItem['vod_remarks']}}</span>
-					</view>
-					<view class="title main-text-center main-text-eone">{{mvItem['vod_name']}}</view>
-					<text class="desc main-text-eone main-color666">{{mvItem['vod_actor']?mvItem['vod_actor']:mvItem['vod_name']}}</text>
+<nav />
+<view class="main" style="margin-top: 3.2rem;">
+	<view tt:if="{{false}}" class="main-layout" style="padding: .5rem;font-size: 12px;">
+		为避免小程序被封后迷路，请大家关注微信公众号 "枫婷晚" 。
+	</view>
+	<view class="main-layout main-back-color-white">
+		<view class="main-list-head main-row main-padding">
+			<view class="title">{{title}}</view>
+		</view>
+		<view class="main-list-info main-row">
+			<view bindtap="toDetail" id="{{mvItem.vod_id}}" tt:for="{{mvs}}" tt:key="*this" tt:for-item="mvItem" class="list main-padding main-col-xs4">
+				<view class="pic" style="display: block; background-image: url({{mvItem['vod_pic']}});">
+					<span class="vod"></span>
+					<!-- <span class="score main-color-white main-back-color">{{mvItem['vod_serial']}}</span> -->
+					<span class="remarks main-color-white main-text-center">{{mvItem['vod_remarks']}}</span>
 				</view>
+				<view class="title main-text-center main-text-eone">{{mvItem['vod_name']}}</view>
+				<text class="desc main-text-eone main-color666">{{mvItem['vod_actor']?mvItem['vod_actor']:mvItem['vod_name']}}</text>
 			</view>
 		</view>
 	</view>
+</view>
