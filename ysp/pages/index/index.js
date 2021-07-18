@@ -15,6 +15,12 @@ Page({
     mvTypes: [{'k':'电影','v': 'dys'},{'k':'电视剧','v': 'dss'},{'k':'综艺','v': 'zys'},{'k':'动漫','v': 'dms'}],
     mvType: {'电影': 'dy','电视剧': 'ds','综艺': 'zy','动漫': 'dm'}
   },
+  // 留言
+  toSuggest(){
+    wx.navigateTo({
+      url: '../suggest/suggest',
+    })
+  },
   // 点击轮播图去搜索
   toSwiperSearch(e) {
     var tv_name = e.currentTarget.dataset.tvname;

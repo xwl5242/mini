@@ -63,4 +63,7 @@
 			</view>
 		</view>
 	</view>
+	<view class="suggest-box" bindtap="toSuggest"> 
+		<view>留言</view>
+	</view>
 </view>

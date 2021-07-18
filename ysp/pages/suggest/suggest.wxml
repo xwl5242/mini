@@ -1,0 +1,5 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="main-box">
+  <view><textarea placeholder="欢迎留言" bindinput="onInput"></textarea></view>
+  <view class="btn" bindtap="doSuggest"><view>留言</view></view>
+</view>

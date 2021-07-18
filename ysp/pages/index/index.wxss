@@ -245,7 +245,7 @@
 }
 
 .main-row {
-  width: 100vw;
+  width: 98vw;
   font-size: 13px;
   position: relative;
   overflow: hidden;
@@ -445,4 +445,22 @@ vod-info .vod-list-info .score {
 .vod-btn-border {
   border: .0625rem solid #2B2A2A;
   border-radius: .1875rem;
+}
+.suggest-box {
+  right: 0;
+  bottom: 50px;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  color: #FFE28A;
+  position: fixed;
+  opacity: .8;
+  background-color: #323232;
+}
+.suggest-box view {
+  flex: 1;
+  font-size: 12px;
+  align-self: center;
 }

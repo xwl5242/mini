@@ -6,7 +6,8 @@
     "pages/components/nav",
     "pages/list/list",
     "pages/listmore/listmore",
-    "pages/parse/parse"
+    "pages/parse/parse",
+    "pages/suggest/suggest"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -28,7 +28,7 @@
 			</view>
 		</view>
 	</view>
-	<view wx:if="{{showVideo}}" class="main-layout main-row main-back-color-white">
+	<view wx:if="{{showVideo}}" class="main-layout main-row main-back-color-white" style="width: 97vw;">
 		<video src="{{curPlayUrl}}" style="width: 100%; height: 210px;"></video>
 	</view>
 	<!-- <ad unit-id="adunit-eaf232d323404d77" ad-intervals="55"></ad> -->
