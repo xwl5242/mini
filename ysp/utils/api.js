@@ -1,7 +1,7 @@
 // const util = require("./util.js")
 const GET = "GET";
 const POST = "POST"
-const CUR_VER = "W2"
+const CUR_VER = "W3"
 // api前缀
 const baseURL = "https://smart.quanchonger.com/vip/";
 // const baseURL = "http://127.0.0.1:8082/vip/";

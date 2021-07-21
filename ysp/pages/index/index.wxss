@@ -464,3 +464,7 @@ vod-info .vod-list-info .score {
   font-size: 12px;
   align-self: center;
 }
+.footer-msg {
+  font-size: 10px;
+  text-align: left;
+}

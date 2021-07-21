@@ -13,7 +13,10 @@ Page({
     banners: [],
     showBanner: false,
     mvTypes: [{'k':'电影','v': 'dys'},{'k':'电视剧','v': 'dss'},{'k':'综艺','v': 'zys'},{'k':'动漫','v': 'dms'}],
-    mvType: {'电影': 'dy','电视剧': 'ds','综艺': 'zy','动漫': 'dm'}
+    mvType: {'电影': 'dy','电视剧': 'ds','综艺': 'zy','动漫': 'dm'},
+    footerMsg: '',
+    showFooterMail: false,
+    footerMail: '邮箱: xwl5242@163.com'
   },
   // 留言
   toSuggest(){
@@ -50,12 +53,16 @@ Page({
       $api.banner().then(res => {
         this.setData({
           showBanner: true,
+          showFooterMail: true,
+          footerMsg: '本小程序提供的最新视频资源均系收集于各大视频网站，只提供web页面服务，并不提供影片资源存储，也不参与录制、上传。若收录的节目无意侵犯了贵司版权，请给底部邮箱地址来信，我们会及时处理和回复，谢谢!',
           banners: res.data.banner_list
         });
       });
     }else{
       this.setData({
         banners: [],
+        showFooterMail: false,
+        footerMsg: '欢迎来到汪仔影视！',
         showBanner: false
       });
     }

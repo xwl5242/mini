@@ -58,13 +58,9 @@ Page({
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var vodId = options['vod_id'];
+  init: function (vodId) {
     // search setting
-    let ads = wx.getStorageSync('ADS')
+    let ads = wx.getStorageSync('ADS');
     let status = wx.getStorageSync('STATUS');
     if(status == '1') {
       this.setData({
@@ -106,6 +102,21 @@ Page({
       this.setData({
         mvDetail: res.data.mv
       })
+    });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var vodId = options['vod_id'];
+    $api.send("settings").then(res=>{
+      let settings = res.data.settings;
+      wx.setStorageSync('ADS', settings['ads']);
+      wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
+      wx.setStorageSync('SHOW_VODS', settings['show_vods']);
+      wx.setStorageSync('STATUS', settings['status']);
+      wx.setStorageSync('PARSE_ENABLE', settings['parse_enable']);
+      this.init(vodId);
     });
   },
 

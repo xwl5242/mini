@@ -4,7 +4,7 @@
 <view class="container">
 	<view class="main" style="width: 100%;">
 		<!-- 轮播图 -->
-		<view wx:if="{{showBanner}}" class="main-row">
+		<view wx:if="{{showBanner}}" class="main-row" style="width: 100vw;">
 			<swiper autoplay="true" interval="1500" style="display: flex;">
 				<block wx:for="{{banners}}" wx:key="*this">
 					<swiper-item class="main-swip-slide">
@@ -61,6 +61,10 @@
 					<text class="desc main-text-eone main-color666">{{mvItem.vod_actor?mvItem.vod_actor:mvItem.vod_name}}</text>
 				</view>
 			</view>
+		</view>
+		<view class="main-layout main-row">
+			<view class="footer-msg">{{footerMsg}}</view>
+			<view class="footer-msg" wx:if="{{showFooterMail}}">{{footerMail}}</view>
 		</view>
 	</view>
 	<view class="suggest-box" bindtap="toSuggest"> 
