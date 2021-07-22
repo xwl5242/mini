@@ -2,7 +2,7 @@
 const $api = require('./utils/api').API
 App({
   onLaunch: function () {
-    wx.setStorageSync('nav_currentNavSel', 'index');
+    wx.setStorageSync('nav_current_nav_sel', 'index');
     // 获取页面可是区域高度
     this.getPageHeight().then(res => {
       this.globalData.pageHeight = res

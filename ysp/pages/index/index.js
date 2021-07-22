@@ -1,5 +1,3 @@
-//index.js
-//获取应用实例
 const app = getApp()
 const $init = require("../../utils/init")
 const $api = require("../../utils/api").API
@@ -34,7 +32,7 @@ Page({
   // 前往vod列表页面
   toList: function(e){
     var type = e.currentTarget.id;
-    wx.setStorageSync('nav_currentNavSel', type)
+    wx.setStorageSync('nav_current_nav_sel', type)
     wx.navigateTo({
       url: '../list/list?type=' + type,
     })
@@ -53,10 +51,12 @@ Page({
       $api.banner().then(res => {
         this.setData({
           showBanner: true,
-          showFooterMail: true,
-          footerMsg: '本小程序提供的最新视频资源均系收集于各大视频网站，只提供web页面服务，并不提供影片资源存储，也不参与录制、上传。若收录的节目无意侵犯了贵司版权，请给底部邮箱地址来信，我们会及时处理和回复，谢谢!',
           banners: res.data.banner_list
         });
+      });
+      this.setData({
+        showFooterMail: true,
+        footerMsg: '本小程序提供的最新视频资源均系收集于各大视频网站，只提供web页面服务，并不提供影片资源存储，也不参与录制、上传。若收录的节目无意侵犯了贵司版权，请给底部邮箱地址来信，我们会及时处理和回复，谢谢!'
       });
     }else{
       this.setData({
@@ -76,13 +76,7 @@ Page({
     });
   },
   onLoad: function () {
-    $api.send("settings").then(res=>{
-      let settings = res.data.settings;
-      wx.setStorageSync('ADS', settings['ads']);
-      wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
-      wx.setStorageSync('SHOW_VODS', settings['show_vods']);
-      wx.setStorageSync('STATUS', settings['status']);
-      wx.setStorageSync('PARSE_ENABLE', settings['parse_enable'])
+    $api.setting().then(res=>{
       this.init();
     });
   },

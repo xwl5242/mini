@@ -1,11 +1,7 @@
-// const util = require("./util.js")
 const GET = "GET";
 const POST = "POST"
 const CUR_VER = "W3"
-// api前缀
-const baseURL = "https://smart.quanchonger.com/vip/";
-// const baseURL = "http://127.0.0.1:8082/vip/";
-
+const baseURL = "https://smart.quanchonger.com/vip/"; // api前缀
 // 封装 wx.request 
 function request(url, method, data) {
   data = data || {};
@@ -21,24 +17,29 @@ function request(url, method, data) {
       fail: function(res) {
         resolve(res);
       }
-    })
+    });
   });
 }
-
-// 所有api地址
-const indexApi = "index"
-const bannerApi = "banner"
-const topApi = "top"
-
 // 所有api请求
 const API = {
   ver: CUR_VER,
+  top: data => request("top", GET, data),
+  index: data => request("index", GET, data),
   send: (url, data) => request(url, GET, data),
-  index: data => request(indexApi, GET, data),
-  banner: data => request(bannerApi, GET, data),
-  top: data => request(topApi, GET, data),
+  banner: data => request("banner", GET, data),
+  setting: () =>  new Promise((resolve, reject) => {
+    request("settings", GET).then(res=>{
+      let settings = res.data.settings;
+      wx.setStorageSync('ADS', settings['ads']);
+      wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
+      wx.setStorageSync('SHOW_VODS', settings['show_vods']);
+      wx.setStorageSync('STATUS', settings['status']);
+      wx.setStorageSync('PARSE_ENABLE', settings['parse_enable'])
+      wx.setStorageSync('SETED_STORAGE_TIME', +new Date());
+      resolve(res);
+    });
+  })
 }
-
 module.exports = {
-  API: API,
+  API: API
 }

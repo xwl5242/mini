@@ -49,6 +49,9 @@
 						<view bindtap="changePlaySource" data-play-source-index="{{index}}" wx:key="*this" wx:for="{{playSourceNum}}" class="main-padding main-col-xs3">
 							<text class="vod-play-list-btns vod-btn-border main-text-eone {{index==curPlaySourceIndex?'main-color-black main-back-color':''}}">播放源{{index+1}}</text>
 						</view>
+						<view bindtap="copyPlayUrl" class="main-padding main-col-xs3">
+							<text class="vod-play-list-btns vod-btn-border main-text-eone">复制链接</text>
+						</view>
 					</view>
 				</view>
 				<view style="margin-top: 5px;">

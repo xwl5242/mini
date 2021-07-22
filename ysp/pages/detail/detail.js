@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    vodId: '',
     curPlayUrl: '',
     mvDetail: {},
     mvPlayUrls: [],
@@ -25,6 +26,9 @@ Page({
       curPlayIndex: -1,
       curPlaySourceIndex: sourceIndex
     });
+  },
+  copyPlayUrl: function() {
+    
   },
   // play
   toPlay: function(e) {
@@ -64,6 +68,7 @@ Page({
     let status = wx.getStorageSync('STATUS');
     if(status == '1') {
       this.setData({
+        vodId: vodId,
         notice: ads,
         playerStatus: true,
         noticeStatus: true
@@ -109,13 +114,7 @@ Page({
    */
   onLoad: function (options) {
     var vodId = options['vod_id'];
-    $api.send("settings").then(res=>{
-      let settings = res.data.settings;
-      wx.setStorageSync('ADS', settings['ads']);
-      wx.setStorageSync('HIDE_VODS', settings['hide_vods']);
-      wx.setStorageSync('SHOW_VODS', settings['show_vods']);
-      wx.setStorageSync('STATUS', settings['status']);
-      wx.setStorageSync('PARSE_ENABLE', settings['parse_enable']);
+    $api.setting().then(res=>{
       this.init(vodId);
     });
   },

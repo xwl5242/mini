@@ -10,28 +10,27 @@ Component({
     searchBtnClick: false,
     currentNavSel: 'index'
   }, // 私有数据，可用于模版渲染
-
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
     attached: function () { },
     moved: function () { },
     detached: function () { },
   },
-
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function () { }, // 此处attached的声明会被lifetimes字段中的声明覆盖
   ready: function() {
-    this.setData({
-      showParse: wx.getStorageSync('STATUS') == '1',
-      currentNavSel: wx.getStorageSync('nav_currentNavSel') || 'index'
-    });
-    $api.top().then(res => {
+    $api.setting().then(res=>{
       this.setData({
-        tops: res.data.top_list
-      })
-    })
+        showParse: wx.getStorageSync('STATUS') == '1',
+        currentNavSel: wx.getStorageSync('nav_current_nav_sel') || 'index'
+      });
+      $api.top().then(res => {
+        this.setData({
+          tops: res.data.top_list
+        });
+      });
+    });
   },
-
   pageLifetimes: {
     // 组件所在页面的生命周期函数
     show: function () { },
@@ -39,14 +38,14 @@ Component({
 
   methods: {
     toIndex: function(){
-      wx.setStorageSync('nav_currentNavSel', 'index')
+      wx.setStorageSync('nav_current_nav_sel', 'index')
       wx.navigateTo({
         url: '../index/index',
       })
     },
     toList: function(e){
       var type = e.currentTarget.id;
-      wx.setStorageSync('nav_currentNavSel', type)
+      wx.setStorageSync('nav_current_nav_sel', type)
       wx.navigateTo({
         url: type=='parse'?'../parse/parse':('../list/list?type=' + type),
       })
