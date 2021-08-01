@@ -1,16 +1,13 @@
-const GET = "GET";
-const POST = "POST"
-const CUR_VER = "W3"
-const baseURL = "https://smart.quanchonger.com/vip/"; // api前缀
-// 封装 wx.request 
+const GET = "GET", POST = "POST", CUR_VER = "W4";
+const baseURL = "https://smart.quanchonger.com/vip/";
 function request(url, method, data) {
   data = data || {};
   data['ver'] = CUR_VER;
   return new Promise((resolve, reject) => {
     wx.request({
-      url: baseURL + url,
+      url: baseURL+url,
       method: method,
-      data: method == POST ? JSON.stringify(data) : data,
+      data: method == POST? JSON.stringify(data): data,
       success: function(res) {
         resolve(res);
       },

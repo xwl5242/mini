@@ -1,4 +1,3 @@
-/* pages/listmore/listmore.wxss */
 @import '../index/index.wxss';
 page{
   background-color: #2B2A2A;

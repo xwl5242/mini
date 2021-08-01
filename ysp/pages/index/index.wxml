@@ -8,7 +8,7 @@
 			<swiper autoplay="true" interval="1500" style="display: flex;">
 				<block wx:for="{{banners}}" wx:key="*this">
 					<swiper-item class="main-swip-slide">
-						<view data-tvname="{{item.tv_name}}" bindtap="toSwiperSearch" class="pic" style="background-image: url({{item.tv_img}});border-radius:5px;padding-top:45%;">
+						<view data-tvname="{{item.tv_name}}" bindtap="toSwiperSearch" class="pic" style="background-image: url({{item.tv_img}});padding-top:45%;">
 							<view class="title main-text-eone" style="color: #FFE28A;">
 								<text class="main-text-eone text-left" style="margin-bottom: .3125rem;">{{item.tv_name}}</text>
 								<text class="main-text-eone"></text>
@@ -62,7 +62,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="main-layout main-row">
+		<view class="main-layout main-row" style="padding: 8px;">
 			<view class="footer-msg">{{footerMsg}}</view>
 			<view class="footer-msg" wx:if="{{showFooterMail}}">{{footerMail}}</view>
 		</view>

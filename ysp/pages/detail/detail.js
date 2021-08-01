@@ -1,5 +1,3 @@
-// pages/detail/detail.js
-const app = getApp()
 const $api = require("../../utils/api").API
 Page({
 
@@ -28,7 +26,16 @@ Page({
     });
   },
   copyPlayUrl: function() {
-    
+    let vodUrl = 'http://book.quanchonger.com/index.php/vod/detail/id/'+this.data.vodId+'.html';
+    wx.setClipboardData({
+      data: vodUrl,
+      success (res) {
+        wx.getClipboardData({
+          success (res) {
+          }
+        })
+      }
+    })
   },
   // play
   toPlay: function(e) {
